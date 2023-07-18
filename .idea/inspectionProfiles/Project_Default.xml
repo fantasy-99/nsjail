@@ -1,0 +1,19 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="KnowledgeTracing.evaluation.run.Constant" />
+          <option value="KnowledgeTracing.evaluation.run.evaluation" />
+          <option value="KnowledgeTracing.evaluation.run.data" />
+          <option value="KnowledgeTracing.evaluation.run.model" />
+          <option value="KnowledgeTracing.data.dataloader.Constant" />
+          <option value="KnowledgeTracing.data.dataloader.data" />
+          <option value="KnowledgeTracing.data.DKTDataSet.Constant" />
+          <option value="KnowledgeTracing.data.readdata.data" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

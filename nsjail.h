@@ -105,6 +105,7 @@ struct nsjconf_t {
 	bool daemonize;
 	uint64_t tlimit;
 	size_t max_cpus;
+	std::vector<int> set_cpus;
 	bool keep_env;
 	bool keep_caps;
 	bool disable_no_new_privs;
@@ -133,6 +134,11 @@ struct nsjconf_t {
 	bool is_root_rw;
 	bool is_silent;
 	bool stderr_to_null;
+	bool stdin_from_null;
+	int stdin_redirect_fd;
+	int stdout_redirect_fd;
+	int stderr_redirect_fd;
+	std::string usage_log_file_name;
 	bool skip_setsid;
 	unsigned int max_conns;
 	unsigned int max_conns_per_ip;
@@ -180,6 +186,12 @@ struct nsjconf_t {
 	std::vector<int> caps;
 	std::vector<std::string> ifaces;
 	std::vector<pipemap_t> pipes;
+	/* results */
+	long long user_time_consumption;
+	long long kernel_time_consumption;
+	long long memory_consumption;
+	int process_exit_code;
+	int process_exit_signal;
 };
 
 #endif /* _NSJAIL_H */

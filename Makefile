@@ -29,7 +29,7 @@ COMMON_FLAGS += -O2 -c \
 	-fPIE \
 	-Wformat -Wformat-security -Wno-format-nonliteral \
 	-Wall -Wextra -Werror \
-	-Ikafel/include
+	-Ikafel/include -I/usr/include/libnl3
 
 CXXFLAGS += $(USER_DEFINES) $(COMMON_FLAGS) $(shell pkg-config --cflags protobuf) \
 	-std=c++14 -fno-exceptions -Wno-unused -Wno-unused-parameter
@@ -103,6 +103,11 @@ indent:
 	clang-format -style="{BasedOnStyle: google, IndentWidth: 8, UseTab: Always, IndentCaseLabels: false, ColumnLimit: 100, AlignAfterOpenBracket: false, AllowShortFunctionsOnASingleLine: false}" -i -sort-includes *.h $(SRCS_CXX)
 	clang-format -style="{BasedOnStyle: google, IndentWidth: 4, UseTab: Always, ColumnLimit: 100}" -i $(SRCS_PROTO)
 
+.PHONY: test
+test:
+	mkdir -p run
+	$(RM) -r run/*
+	$(CXX) -Wall -Wextra -Werror -std=c++17 -fopenmp -o test test.cpp test.hpp -lstdc++fs
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 
 caps.o: caps.h nsjail.h logs.h macros.h util.h
